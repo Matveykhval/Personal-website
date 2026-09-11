@@ -1,211 +1,173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="The personal portfolio of Matvey Khval, a designer and developer.">
-	<title>Matvey Khval — Designer & Developer</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-	<style>
-		:root {
-			--ink: #18211f;
-			--muted: #65716d;
-			--paper: #f5f3ee;
-			--sage: #d8e4dc;
-			--leaf: #2d5a4d;
-			--coral: #d86f56;
-			--line: rgba(24, 33, 31, 0.14);
-			--serif: "Playfair Display", Georgia, serif;
-			--sans: "DM Sans", Arial, sans-serif;
-		}
-
-		* { box-sizing: border-box; }
-		html { scroll-behavior: smooth; }
-		body {
-			margin: 0;
-			color: var(--ink);
-			background: var(--paper);
-			font-family: var(--sans);
-			line-height: 1.6;
-		}
-		a { color: inherit; text-decoration: none; }
-		a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
-		.site-header, main, .site-footer { max-width: 1180px; margin: 0 auto; padding-left: 5vw; padding-right: 5vw; }
-		.site-header {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			padding-top: 28px;
-			padding-bottom: 28px;
-		}
-		.logo { font-weight: 700; letter-spacing: .04em; }
-		.logo span { color: var(--coral); }
-		.nav { display: flex; gap: 28px; color: var(--muted); font-size: .92rem; }
-		.nav a:hover { color: var(--ink); }
-		.hero {
-			display: grid;
-			grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
-			gap: clamp(36px, 8vw, 110px);
-			align-items: center;
-			min-height: 620px;
-			padding-top: 56px;
-			padding-bottom: 92px;
-		}
-		.eyebrow { color: var(--leaf); font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-		h1, h2, h3, p { margin-top: 0; }
-		h1 {
-			max-width: 650px;
-			margin-bottom: 26px;
-			font-family: var(--serif);
-			font-size: clamp(3.5rem, 8vw, 7.4rem);
-			line-height: .98;
-			letter-spacing: -.04em;
-			font-weight: 700;
-		}
-		.hero-copy { max-width: 510px; color: var(--muted); font-size: 1.1rem; }
-		.button {
-			display: inline-flex;
-			align-items: center;
-			gap: 12px;
-			margin-top: 24px;
-			padding: 13px 19px;
-			border: 1px solid var(--ink);
-			border-radius: 2px;
-			font-size: .9rem;
-			font-weight: 700;
-			transition: background .2s, color .2s, transform .2s;
-		}
-		.button:hover { color: var(--paper); background: var(--ink); transform: translateY(-2px); }
-		.portrait-wrap { position: relative; max-width: 420px; justify-self: end; }
-		.portrait-wrap::before {
-			position: absolute;
-			z-index: -1;
-			content: "";
-			width: 78%;
-			height: 78%;
-			right: -24px;
-			bottom: -24px;
-			background: var(--coral);
-		}
-		.portrait { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: saturate(.8); }
-		.portrait-note { margin: 16px 0 0; color: var(--muted); font-size: .78rem; }
-		.section { padding: 92px 0; border-top: 1px solid var(--line); }
-		.section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 42px; }
-		h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; letter-spacing: -.03em; }
-		.section-heading p { margin-bottom: 0; color: var(--muted); }
-		.projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-		.project { padding-top: 20px; border-top: 2px solid var(--ink); }
-		.project-number { color: var(--coral); font-size: .8rem; font-weight: 700; }
-		.project h3 { margin: 20px 0 8px; font-size: 1.35rem; }
-		.project p { color: var(--muted); font-size: .94rem; }
-		.project-link { display: inline-block; margin-top: 10px; font-size: .87rem; font-weight: 700; }
-		.project-link::after { content: "  ↗"; color: var(--coral); }
-		.about {
-			display: grid;
-			grid-template-columns: .8fr 1.2fr;
-			gap: 12vw;
-			align-items: start;
-		}
-		.about-copy { max-width: 610px; font-size: 1.35rem; line-height: 1.45; }
-		.about-copy strong { color: var(--leaf); font-weight: 500; }
-		.contact {
-			display: flex;
-			justify-content: space-between;
-			align-items: end;
-			gap: 28px;
-			padding-bottom: 110px;
-		}
-		.contact h2 { max-width: 650px; }
-		.email { border-bottom: 2px solid var(--coral); font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
-		.site-footer { display: flex; justify-content: space-between; padding-top: 22px; padding-bottom: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
-		.socials { display: flex; gap: 20px; }
-		@media (max-width: 720px) {
-			.site-header { padding-top: 20px; padding-bottom: 20px; }
-			.nav { gap: 14px; font-size: .82rem; }
-			.hero { grid-template-columns: 1fr; min-height: auto; padding-top: 56px; padding-bottom: 82px; }
-			h1 { font-size: clamp(3.3rem, 17vw, 5.5rem); }
-			.portrait-wrap { width: 78%; justify-self: start; margin-left: 12px; }
-			.section { padding: 70px 0; }
-			.section-heading, .contact { display: block; }
-			.section-heading p { margin-top: 16px; }
-			.projects, .about { grid-template-columns: 1fr; gap: 34px; }
-			.about-copy { font-size: 1.15rem; }
-			.email { display: inline-block; margin-top: 30px; }
-			.site-footer { display: block; }
-			.socials { margin-top: 12px; }
-		}
-	</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matvey Khval — Portfolio</title>
+<meta name="description" content="Matvey Khval — CS student, developer, and builder of RC planes and rockets. Projects, skills, and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<header class="site-header">
-		<a class="logo" href="#top" aria-label="Matvey Khval home">MK<span>.</span></a>
-		<nav class="nav" aria-label="Main navigation">
-			<a href="#work">Work</a>
-			<a href="#about">About</a>
-			<a href="#contact">Contact</a>
-		</nav>
-	</header>
 
-	<main id="top">
-		<section class="hero" aria-labelledby="intro-title">
-			<div>
-				<p class="eyebrow">Independent designer & developer</p>
-				<h1 id="intro-title">Making room for good ideas.</h1>
-				<p class="hero-copy">I’m Matvey, a multidisciplinary creative based in Amsterdam. I turn complex problems into clear, useful and quietly beautiful digital experiences.</p>
-				<a class="button" href="#work">See selected work <span aria-hidden="true">↓</span></a>
-			</div>
-			<div class="portrait-wrap">
-				<img class="portrait" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Portrait of Matvey Khval">
-				<p class="portrait-note">Currently available for a select few collaborations.</p>
-			</div>
-		</section>
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-id"><strong>M. KHVAL</strong> · log №01</span>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+    </ul>
+  </div>
+</nav>
 
-		<section class="section" id="work" aria-labelledby="work-title">
-			<div class="section-heading">
-				<h2 id="work-title">Selected work</h2>
-				<p>Recent projects, 2023—2025</p>
-			</div>
-			<div class="projects">
-				<article class="project">
-					<span class="project-number">01 / Brand & digital</span>
-					<h3>Field Notes</h3>
-					<p>A new identity and editorial platform for a community of independent makers.</p>
-					<a class="project-link" href="#contact">View project</a>
-				</article>
-				<article class="project">
-					<span class="project-number">02 / Product design</span>
-					<h3>Common Ground</h3>
-					<p>Making local climate data understandable, actionable and a little less overwhelming.</p>
-					<a class="project-link" href="#contact">View project</a>
-				</article>
-				<article class="project">
-					<span class="project-number">03 / Art direction</span>
-					<h3>Sunday Objects</h3>
-					<p>An online home for objects made slowly, thoughtfully and to be lived with.</p>
-					<a class="project-link" href="#contact">View project</a>
-				</article>
-			</div>
-		</section>
+<header class="hero">
+  <div class="sheet hero-grid">
+    <div>
+      <p class="hero-kicker">Personal site — Delft, NL</p>
+      <h1>Matvey Khval</h1>
+      <p class="hero-role">Computer science student (pre-university track, Leiden) — building software, planes, and rockets.</p>
+      <p class="hero-desc">I like taking things apart to understand how they fly, run, or compute — then building my own versions. This page covers what I've built, what I can do, and how to reach me.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn">View projects</a>
+        <a href="#schedule" class="btn btn-primary">Book a call</a>
+      </div>
+    </div>
+    <div class="trajectory-wrap register">
+      <div class="label"><span>FLIGHT PATH</span><span>FIG. 1</span></div>
+      <svg viewBox="0 0 420 220" width="100%" height="auto" aria-hidden="true">
+        <path id="trajectory-path" d="M 10 200 C 60 40, 140 20, 200 60 S 320 190, 400 40" />
+        <circle id="trajectory-dot" r="5" />
+      </svg>
+    </div>
+  </div>
+</header>
 
-		<section class="section about" id="about" aria-labelledby="about-title">
-			<h2 id="about-title">A little about me</h2>
-			<p class="about-copy">I work across <strong>strategy, visual identity and front-end development</strong>, partnering with people who care about the details and the bigger picture. Away from my desk, you’ll find me collecting cookbooks, walking too far and taking pictures of interesting doors.</p>
-		</section>
+<main>
+  <section id="projects">
+    <div class="sheet">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <span class="section-num">§ 01</span>
+      </div>
 
-		<section class="section contact" id="contact" aria-labelledby="contact-title">
-			<h2 id="contact-title">Have a good idea?<br>Let’s make space for it.</h2>
-			<a class="email" href="mailto:matt@khval.com">matt@khval.com ↗</a>
-		</section>
-	</main>
+      <div class="projects-grid">
+        <article class="project-card">
+          <span class="project-tag">SOFTWARE — GAME</span>
+          <h3>Breakout Clone</h3>
+          <p class="project-desc">A multi-level Breakout clone built in Python with Pygame, featuring a boss fight, power-ups, two-player mode, and a speedrun timer. Cleaned up and restructured for readability.</p>
+          <dl class="spec-table">
+            <dt>Stack</dt><dd>Python, Pygame</dd>
+            <dt>Features</dt><dd>Boss fight, power-ups, 2P mode, timer</dd>
+          </dl>
+          <span class="project-link"><a href="#">View on GitHub →</a></span>
+        </article>
 
-	<footer class="site-footer">
-		<span>© 2025 Matvey Khval</span>
-		<div class="socials">
-			<a href="#contact">LinkedIn</a>
-			<a href="#contact">Instagram</a>
-		</div>
-	</footer>
+        <article class="project-card">
+          <span class="project-tag">SOFTWARE — CONCEPT</span>
+          <h3>Magister Grade Tracker</h3>
+          <p class="project-desc">An app and companion site concept that pulls grades from Magister (the Dutch school portal) and reveals new ones through a pack-opening style mechanic.</p>
+          <dl class="spec-table">
+            <dt>Platform</dt><dd>iOS, Android, Web</dd>
+            <dt>Status</dt><dd>In design</dd>
+          </dl>
+          <span class="project-link"><a href="#">Details on request →</a></span>
+        </article>
+
+        <article class="project-card">
+          <span class="project-tag">HARDWARE — BUILD</span>
+          <h3>RC Planes &amp; Rockets</h3>
+          <p class="project-desc">Designing, building, and flying radio-controlled planes and model rockets — from airframe assembly to launch and recovery.</p>
+          <dl class="spec-table">
+            <dt>Domain</dt><dd>Aerodynamics, propulsion</dd>
+            <dt>Status</dt><dd>Ongoing</dd>
+          </dl>
+          <span class="project-link"><a href="#">Build log on request →</a></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sheet">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <span class="section-num">§ 02</span>
+      </div>
+
+      <div class="checklist-panel register">
+        <div class="checklist-panel-head">
+          <span>PRE-FLIGHT CHECKLIST</span>
+          <span>ALL SYSTEMS GO</span>
+        </div>
+
+        <p class="checklist-group-label">LANGUAGES</p>
+        <ul class="checklist">
+          <li><span class="check-box"></span><span>Russian</span><span class="check-status">FLUENT</span></li>
+          <li><span class="check-box"></span><span>English</span><span class="check-status">FLUENT</span></li>
+          <li><span class="check-box"></span><span>Dutch</span><span class="check-status">FLUENT</span></li>
+        </ul>
+
+        <p class="checklist-group-label">TECHNICAL</p>
+        <ul class="checklist">
+          <li><span class="check-box"></span><span>Python &amp; Pygame</span><span class="check-status">READY</span></li>
+          <li><span class="check-box"></span><span>HTML / CSS / JS</span><span class="check-status">READY</span></li>
+          <li><span class="check-box"></span><span>Git &amp; GitHub</span><span class="check-status">READY</span></li>
+          <li><span class="check-box"></span><span>Computer science coursework (pre-university, Leiden)</span><span class="check-status">IN PROGRESS</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="sheet">
+      <div class="section-head">
+        <h2>Contact &amp; Schedule</h2>
+        <span class="section-num">§ 03</span>
+      </div>
+
+      <div class="contact-grid">
+        <div class="panel register">
+          <div class="panel-title"><span>MESSAGE FORM</span><span>SEND →</span></div>
+          <form id="contact-form" action="https://formspree.io/f/xzeboylg" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-status" id="form-status"></p>
+          </form>
+        </div>
+
+        <div id="schedule" class="panel register">
+          <div class="panel-title"><span>BOOK A SLOT</span><span>CALENDLY</span></div>
+          <div id="calendly-embed"
+               class="calendly-inline-widget"
+               data-url="https://calendly.com/matt-khval?hide_event_type_details=1&background_color=eaeff3&text_color=152238&primary_color=e15a24">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Matvey Khval — <a href="mailto:matt@khval.com">matt@khval.com</a></span>
+  <span>Built &amp; hosted on GitHub Pages</span>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="script.js"></script>
 </body>
 </html>
