@@ -40,11 +40,19 @@
       <div class="label"><span>FLIGHT PATH</span><span>FIG. 1</span></div>
       <svg viewBox="0 0 420 220" width="100%" height="auto" aria-hidden="true">
         <path id="trajectory-path" d="M 10 200 C 60 40, 140 20, 200 60 S 320 190, 400 40" />
-        <circle id="trajectory-dot" r="5" />
+        <g id="trajectory-plane">
+          <path d="M -13,-6 L 9,0 L -13,6 L -6,0 Z" />
+        </g>
       </svg>
     </div>
   </div>
 </header>
+
+<div class="flyby" aria-hidden="true">
+  <svg class="flyby-plane" viewBox="0 0 24 24" width="52" height="52">
+    <path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3l4 7" />
+  </svg>
+</div>
 
 <main>
   <section id="projects">
@@ -77,7 +85,14 @@
           <span class="project-link"><a href="#">Details on request →</a></span>
         </article>
 
-        <article class="project-card">
+        <article class="project-card project-card--rocket">
+          <svg class="rocket-icon" viewBox="0 0 24 48" width="22" height="44" aria-hidden="true">
+            <path class="rocket-flame" d="M9 34 Q12 45 12 47 Q12 45 15 34 Z" />
+            <path class="rocket-fin-l" d="M8 26 L1 35 L8 35 Z" />
+            <path class="rocket-fin-r" d="M16 26 L23 35 L16 35 Z" />
+            <path class="rocket-body" d="M12 2 C 17 10, 17 26, 12 35 C 7 26, 7 10, 12 2 Z" />
+            <circle class="rocket-window" cx="12" cy="14" r="2.4" />
+          </svg>
           <span class="project-tag">HARDWARE — BUILD</span>
           <h3>RC Planes &amp; Rockets</h3>
           <p class="project-desc">Designing, building, and flying radio-controlled planes and model rockets — from airframe assembly to launch and recovery.</p>
@@ -90,6 +105,12 @@
       </div>
     </div>
   </section>
+
+  <div class="flyby" aria-hidden="true">
+    <svg class="flyby-plane" viewBox="0 0 24 24" width="52" height="52">
+      <path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3l4 7" />
+    </svg>
+  </div>
 
   <section id="skills">
     <div class="sheet">
@@ -121,6 +142,12 @@
       </div>
     </div>
   </section>
+
+  <div class="flyby flyby-alt" aria-hidden="true">
+    <svg class="flyby-plane" viewBox="0 0 24 24" width="52" height="52">
+      <path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3l4 7" />
+    </svg>
+  </div>
 
   <section id="contact">
     <div class="sheet">
