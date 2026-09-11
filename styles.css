@@ -520,3 +520,45 @@ footer {
   gap: 12px;
   flex-wrap: wrap;
 }
+
+
+
+/* ---------- 404 page ---------- */
+.error-page {
+  min-height: calc(100vh - 132px);
+  display: flex;
+  align-items: center;
+  padding: 56px 0;
+}
+.error-panel {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(28px, 6vw, 64px);
+  text-align: center;
+}
+.error-panel h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+.error-panel p:not(.hero-kicker):not(.error-code) {
+  max-width: 48ch;
+  margin: 0 auto 28px;
+  color: var(--ink-soft);
+}
+.error-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--flame-dim);
+  margin-bottom: 24px;
+}
+.error-panel .btn { margin-top: 4px; }
+
+@media (max-width: 560px) {
+  .error-page { min-height: calc(100vh - 116px); }
+  .error-panel { padding: 36px 22px; }
+  .error-panel h1 { font-size: clamp(2.25rem, 12vw, 3.5rem); }
+  .error-body .nav-id { font-size: 11px; }
+  .error-body .nav-inner { gap: 10px; }
+  .error-body .nav .btn { padding: 9px 12px; font-size: 12px; }
+}
