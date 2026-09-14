@@ -521,6 +521,13 @@ footer {
   flex-wrap: wrap;
 }
 
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a { color: var(--ink-soft); }
+.footer-links a:hover { color: var(--flame); }
+
 
 
 /* ---------- 404 page ---------- */
